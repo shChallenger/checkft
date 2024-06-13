@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"types.h": "c",
+		"stdlib.h": "c",
+		"libc-header-start.h": "c",
+		"ctreat.h": "c",
+		"getft.h": "c",
+		"getln.h": "c",
+		"stdio.h": "c"
+	}
+}

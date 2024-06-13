@@ -1,0 +1,35 @@
+SRC_FILES = \
+getft.c
+
+SRC = $(addprefix srcs/, $(SRC_FILES))
+
+OBJ_FOLDER = objs/
+OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ = $(addprefix $(OBJ_FOLDER), $(OBJ_FILES))
+
+LIB = libgetft.a
+
+AR = ar
+CC = gcc
+CFLAGS = -g -O3 -Wall -Wextra -Wpedantic -Werror
+
+all:	$(LIB)
+
+$(LIB):	$(OBJ_FOLDER) $(OBJ)
+	$(AR) -r $(LIB) $(OBJ)
+
+$(OBJ_FOLDER):
+	mkdir $(OBJ_FOLDER)
+
+objs/%.o:	srcs/%.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf $(OBJ_FOLDER)
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
+
+.PHONY: all clean fclean re
